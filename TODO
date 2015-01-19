@@ -1,0 +1,36 @@
+Lindenmayer Systems:
+
+Example:
+  Start: F
+  Rules:
+    - F = G-F-G
+    - G = F+G+F
+
+Two iterations:
+0: F
+1: G-F-G
+2: F+G+F-G-F-G-F+G+F
+
+Define what each symbol means:
+F/G = Walk 80 pixels foward
+-   = Turn 90 degress left
++   = Turn 90 degress right
+
+What will i need:
+Given a string, iteration num and a set of rules return the iterated string.
+  - l_system.GenerateString(2); // returns 2 iterations based on that given l_system
+
+LSystem Class needs:
+  - A way to be given rules ... in sort a breed of rules. Where there is such
+    a mapping 'Char' = 'String' or if no rules 'Char' = 'Char'.
+
+Need a GeneratedStringRenderer... Which will take a generated string and render it based on a set up rules:
+
+Rules - A rule is a Charact that then produces a String ex: A -> ABAB
+
+Lets attempt to use XML to pass a set of rules:
+
+<Rules>
+  <"F -> G-F-G">
+  <"G -> F+G+F">
+</Rules>
